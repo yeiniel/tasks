@@ -11,5 +11,11 @@ export const routes: Routes = [
         resolve: {
             tasks: () => inject(TasksRepositoryService).getTasks()
         }
+    },
+    {
+        path: 'new',
+        pathMatch: 'full',
+        loadComponent: () => import('./new-task/new-task.component')
+            .then(m => m.NewTaskComponent)
     }
 ]

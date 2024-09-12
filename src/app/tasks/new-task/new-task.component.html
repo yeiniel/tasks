@@ -1,0 +1,8 @@
+<h1>Adicionar nueva tarea</h1>
+<form [formGroup]="formGroup" (ngSubmit)="createTask()">
+    <div>
+        <label for="title">Titulo</label>
+        <input type="text" id="title" name="title" required formControlName="title" />
+    </div>
+    <button type="submit">Adicionar tarea</button>
+</form>
