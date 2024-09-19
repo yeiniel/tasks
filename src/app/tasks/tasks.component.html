@@ -1,5 +1,2 @@
-<ul>
-    @for (task of tasks(); track $index) {
-        <li data-test-type="task">{{task.title}}</li>
-    }
-</ul>
+<app-tasks-new />
+<app-tasks-list [tasks]="tasks()"/>

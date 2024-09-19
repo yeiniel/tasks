@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="col">
+        <form class="card" [formGroup]="formGroup" (ngSubmit)="createTask()">
+            <div class="card-body">
+                <input type="text" 
+                       class="form-control"
+                       id="title" 
+                       name="title" 
+                       required 
+                       placeholder="Adicionar nueva tarea"
+                       autoFocus
+                       formControlName="title" />
+            </div>
+        </form>
+    </div>
+</div>

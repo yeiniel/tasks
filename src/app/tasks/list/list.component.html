@@ -1,0 +1,9 @@
+<div class="row" role="list">
+    @for (task of tasks; track $index) {
+        <div class="col col-xs-12 col-sm-6 col-md-3" data-test-type="task" role="listitem">
+            <div class="card">
+                <div class="card-body">{{task.title}}</div>
+            </div>
+        </div>
+    }
+</div>
