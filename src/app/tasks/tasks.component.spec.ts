@@ -6,6 +6,7 @@ import { of } from 'rxjs';
 import { TasksComponent } from './tasks.component';
 import { Task } from './task';
 import { TasksRepositoryService } from './tasks-repository.service';
+import { fillFormAndSubmit } from '../testing/fill-form-and-submit';
 
 describe(TasksComponent.name, () => {
   let tasks: Task[];
@@ -56,16 +57,7 @@ describe(TasksComponent.name, () => {
 
   it('should store a new task', () => {
     const title = `some random title ${Math.random()}`;
-    const inputDE = fixture.debugElement.query(By.css('input[id="title"]'));
-
-    inputDE.nativeElement.value = title;
-    inputDE.triggerEventHandler('input', { target: inputDE.nativeElement });
-
-    fixture.detectChanges();
-
-    fixture.debugElement.query(By.css('form')).triggerEventHandler('submit', null);
-
-    fixture.detectChanges();
+    fillFormAndSubmit(fixture, [['input[id="title"]', title]]);
 
     expect(TestBed.inject(TasksRepositoryService).createTask).toHaveBeenCalledWith({
       title
