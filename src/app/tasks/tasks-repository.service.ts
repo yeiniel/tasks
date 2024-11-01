@@ -27,7 +27,8 @@ export class TasksRepositoryService {
     return this.collectionDataFn(this.collectionRef) as Observable<Task[]>
   }
 
-  createTask(createTask: Task) {
+  /** Create task */
+  public createTask(createTask: Task) {
     return this.addDocFn(this.collectionRef, createTask);
   }
 }
