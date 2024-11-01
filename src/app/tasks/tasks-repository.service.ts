@@ -20,15 +20,7 @@ export class TasksRepositoryService {
   
   constructor(
     private firestore: Firestore
-  ) {
-    if (this.collectionDataFn === null) {
-      this.collectionDataFn = collectionData;
-    }
-    
-    if (this.collectionFn === null) {
-      this.collectionFn = collection;
-    }
-  }
+  ) {}
   
   /** Retrieve all tasks from storage */
   public getTasks(): Observable<Task[]> {
