@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { firstValueFrom, of } from 'rxjs';
-import { addDoc, collection, collectionData, Firestore } from '@angular/fire/firestore';
+import { Firestore } from '@angular/fire/firestore';
 import { Provider } from '@angular/core';
 
 import { TasksRepositoryService } from './tasks-repository.service';
@@ -8,9 +8,9 @@ import { Task } from './task';
 
 describe(TasksRepositoryService.name, () => {
   let service: TasksRepositoryService;
-  let collectionFn: jest.SpyInstance;
-  let collectionDataFn: jest.SpyInstance;
-  let addDocFn: jest.SpyInstance;
+  let collectionFn: jest.Mock;
+  let collectionDataFn: jest.Mock;
+  let addDocFn: jest.Mock;
 
   beforeEach(() => {
     const numTasks = Math.floor(Math.random() * 100);
@@ -33,9 +33,9 @@ describe(TasksRepositoryService.name, () => {
     });
     
     service = TestBed.inject(TasksRepositoryService);
-    service.collectionFn = collectionFn as unknown as typeof collection;
-    service.collectionDataFn = collectionDataFn as unknown as typeof collectionData;
-    service.addDocFn = addDocFn as unknown as typeof addDoc;
+    service.collectionFn = collectionFn;
+    service.collectionDataFn = collectionDataFn;
+    service.addDocFn = addDocFn;
   });
 
   describe(TasksRepositoryService.prototype.getTasks.name, () => {
