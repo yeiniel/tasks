@@ -24,6 +24,6 @@ export class LoginComponent {
 
     await this.authSvc.authenticate(email, password);
 
-    this.router.navigate(['../../'])
+    await this.router.navigate(['../../'])
   }
 }
