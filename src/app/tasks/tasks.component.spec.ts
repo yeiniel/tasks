@@ -20,7 +20,7 @@ describe(TasksComponent.name, () => {
     const numTasks = Math.floor(Math.random() * 100);
     tasks = [];
     for (let i = 0; i< numTasks; i++) {
-      tasks.push({ title: `Some task title ${i}` });
+      tasks.push({ title: `Some task title ${i}`, id: i });
     }
 
     await TestBed.configureTestingModule({
