@@ -7,6 +7,7 @@ import { TasksComponent } from './tasks.component';
 import { Task } from './task';
 import { TasksRepositoryService } from './tasks-repository.service';
 import { fillFormAndSubmit } from '../testing/fill-form-and-submit';
+import { StatusToLabelPipe } from './status-to-label.pipe';
 
 describe(TasksComponent.name, () => {
   let tasks: Task[];
@@ -32,7 +33,8 @@ describe(TasksComponent.name, () => {
             getTasks: () => of(tasks),
             createTask: jest.fn(() => Promise.resolve())
           }
-        }
+        },
+        StatusToLabelPipe
       ] as Provider[]
     })
     .compileComponents();
@@ -52,6 +54,17 @@ describe(TasksComponent.name, () => {
   
     for (let i = 0; i < tasks.length; i++) {
       expect(taskDEs[i].nativeElement.innerHTML).toContain(tasks[i].title);
+    }
+  });
+
+  it('should show status of each task', () => {
+    const taskDEs = getTaskDEs();
+    const statusToLabel = TestBed.inject(StatusToLabelPipe);
+  
+    for (let i = 0; i < tasks.length; i++) {
+      expect(taskDEs[i].nativeElement.innerHTML).toContain(
+        statusToLabel.transform(tasks[i].status)
+      );
     }
   });
 

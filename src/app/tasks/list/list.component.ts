@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 import { Task } from '../task';
-import { ItemComponent } from './item/item.component';
+import { ItemComponent } from '../item/item.component';
 
 @Component({
   selector: 'app-tasks-list',

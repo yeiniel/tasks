@@ -1,6 +1,6 @@
 <div class="row" role="list">
     @for (task of tasks; track task.id) {
-        <app-tasks-list-item [task]="task" class="col col-xs-12 col-sm-6 col-md-3"  role="listitem">
-        </app-tasks-list-item>
+        <app-tasks-item [task]="task" class="col col-xs-12 col-sm-6 col-md-3"  role="listitem">
+        </app-tasks-item>
     }
 </div>
